@@ -24,6 +24,10 @@ public class SecurityConfig {
     private final CustomUserDetailsService customUserDetailsService;
     private final JWTAuthFilter jwtAuthFilter;
 
+    // the reason we create a bean of this is because we do not have to later create a BCrypt object again and again
+    // no more BCrypt bcrypt = new BCrypt(); instead just add private final PasswordEncoder passwordEncoder and use it freely
+
+    // here we save this with the name PasswordEncoder, so anytime we add private final PasswordEncoder passwordEncoder, spring automatically injects it there
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -50,12 +54,15 @@ public class SecurityConfig {
     @Bean
     public AuthenticationProvider authenticationProvider() {
 
+        // DaoAuthenticationProvider is a class that handles username/password authentication using DB data
         // calls customUserDetailsService to get user
         // then matches the password using the encryption we used
 
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider(customUserDetailsService);
-        provider.setPasswordEncoder(new BCryptPasswordEncoder());
+        provider.setPasswordEncoder(passwordEncoder()); // We tell that when checking passwords during login, use BCrypt
         return provider;
+
+        // IMP - AuthProvider internally check that user from the db and the one trying to log in as the same or not
     }
 
     @Bean
