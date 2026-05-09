@@ -45,6 +45,10 @@ public class AuthService {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword()));
 
+        // the reason we use authManager and not just use repo directly because,
+        // spring security offers muchmore like - Google OAuth,JWT, OTP, GitHub login, etc (we just do not use it here for now)
+        // Spring Security automatically handles things like: Disabled accounts, Expired accounts, Locked users, Credential expiration, etc
+
         // if AuthProvider returns not valid then error as 401
         if (!authentication.isAuthenticated()) {
             throw new RuntimeException("Invalid username and password");

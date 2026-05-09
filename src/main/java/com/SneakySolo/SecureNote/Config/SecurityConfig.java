@@ -62,6 +62,7 @@ public class SecurityConfig {
         provider.setPasswordEncoder(passwordEncoder()); // We tell that when checking passwords during login, use BCrypt
         return provider;
 
+        // no checking code here because -
         // IMP - AuthProvider internally check that user from the db and the one trying to log in as the same or not
     }
 
