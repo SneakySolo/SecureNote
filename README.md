@@ -1,5 +1,5 @@
 # Secure Notes API
-
+ 
 A stateless REST API built with Spring Boot that demonstrates real-world JWT authentication and role-based access control using Spring Security. Users can register, log in, and manage personal notes — with admin-only deletion enforced at the security layer.
 
 Built as a learning project to deeply understand how Spring Security, JWT filters, and authorization work internally.
