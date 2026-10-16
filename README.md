@@ -18,7 +18,7 @@ Built as a learning project to deeply understand how Spring Security, JWT filter
 | Boilerplate | Lombok |
 | Testing | Postman |
 
----
+----
 
 ## Project Structure
 
