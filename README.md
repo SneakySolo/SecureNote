@@ -19,7 +19,7 @@ Built as a learning project to deeply understand how Spring Security, JWT filter
 | Testing | Postman |
 
 ----
-
+ 
 ## Project Structure
 
 ```
