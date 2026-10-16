@@ -8,7 +8,7 @@ Built as a learning project to deeply understand how Spring Security, JWT filter
 
 ## Tech Stack
 
-| Layer | Technology |
+| Layer | Technology | 
 |---|---|
 | Framework | Spring Boot 3.x |
 | Security | Spring Security 7.x |
